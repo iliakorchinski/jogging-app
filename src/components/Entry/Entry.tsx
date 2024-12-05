@@ -22,7 +22,6 @@ export default function Entry() {
         throw new Error('could not entry...');
       }
       const { accessToken } = await responce.json();
-      console.log(accessToken);
       localStorage.setItem('token', accessToken);
     } catch (err) {
       console.error(err);

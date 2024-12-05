@@ -1,12 +1,12 @@
 import classes from './Header.module.css';
 import Navigation from '../Navigation/Navigation';
-import { useEffect } from 'react';
 
 type HeaderProps = {
   token: string | null;
+  handleForm: () => void;
 };
 
-export default function Header({ token }: HeaderProps) {
+export default function Header({ token, handleForm }: HeaderProps) {
   return (
     <header className={classes.header}>
       <svg
@@ -57,7 +57,7 @@ export default function Header({ token }: HeaderProps) {
           </g>
         </svg>
       </button>
-      {token && <Navigation />}
+      {token && <Navigation handleForm={handleForm} />}
     </header>
   );
 }
