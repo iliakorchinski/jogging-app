@@ -1,5 +1,5 @@
 .container {
-  width: 20rem;
+  width: 20%;
   height: 14.9rem;
   margin: 0 auto;
   padding: 4.813rem 10.688rem 2.25rem 10.75rem;
@@ -9,7 +9,7 @@
 
 .bear {
   display: block;
-  width: 10rem;
+  width: 50%;
   height: 9.375rem;
   margin: 0 auto;
   margin-bottom: 2rem;
@@ -32,4 +32,9 @@
   color: black;
   background-color: #ffffff;
   cursor: pointer;
+}
+
+@media (max-width: 420px) {
+  .bear {
+  }
 }

@@ -1,6 +1,34 @@
 import classes from './Entry.module.css';
 
 export default function Entry() {
+  const handleToken = async () => {
+    try {
+      const responce = await fetch(
+        'https://jogs-tracker-production.up.railway.app/auth/signin',
+        {
+          method: 'POST',
+          headers: {
+            accept: '*/*',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            username: 'alex',
+            password: 'qwerty',
+          }),
+        }
+      );
+
+      if (!responce.ok) {
+        throw new Error('could not entry...');
+      }
+      const { accessToken } = await responce.json();
+      console.log(accessToken);
+      localStorage.setItem('token', accessToken);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <div className={classes.container}>
       <svg
@@ -41,7 +69,9 @@ export default function Entry() {
         </g>
       </svg>
 
-      <button className={classes.button}>Let me in</button>
+      <button className={classes.button} onClick={handleToken}>
+        Let me in
+      </button>
     </div>
   );
 }
